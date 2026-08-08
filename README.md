@@ -21,7 +21,7 @@ gVisor is an application kernel written by Google that acts as a secure sandbox 
 *   **Strict Resource Limits:** Zero network access, dropped kernel privileges, and strict limits on CPU, RAM (512MB), and Threads (250).
 *   **Multi-Language Support:** Execute code in **JavaScript, Python, Java, C++, Rust, and Go**.
 *   **Real-Time Execution:** Powered by Socket.IO, users see their code queueing, running, and completing in absolute real-time.
-*   **Highly Scalable Architecture:** Uses **BullMQ** and **Redis** to manage a robust asynchronous job queue, allowing horizontal scaling.
+*   **Highly Scalable Architecture:** Uses **BullMQ** and **Redis** to manage a robust asynchronous job queue. Whether you have 10 or 1,000+ jobs queued simultaneously, the main API server remains perfectly responsive. You can effortlessly scale throughput by simply spinning up additional worker nodes (Warm Pool) connected to the same Redis instance to process jobs in parallel.
 *   **Execution Metrics:** Tracks exact execution time and peak memory consumption.
 *   **Premium Editor:** Features an embedded, customizable **Monaco Editor**.
 *   **Execution History:** All executed jobs are securely saved to a PostgreSQL database.
