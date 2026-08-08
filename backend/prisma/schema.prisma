@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Represents a registered user of the SecureCloud Run platform.
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String?  // Hashed password, optional for OAuth users
+  name      String?
+  googleId  String?  @unique
+  githubId  String?  @unique
+  avatarUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// A user can submit multiple code execution jobs.
+  jobs      Job[]
+}
+
+/// Represents a single code execution job submitted by a user.
+model Job {
+  id              String   @id @default(uuid())
+  code            String   @db.Text
+  language        String
+  status          JobStatus @default(PENDING)
+  output          String?  @db.Text
+  executionTimeMs Int?
+  
+  startedAt       DateTime?
+  completedAt     DateTime?
+  
+  /// Foreign key linking this job to the user who created it.
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+enum JobStatus {
+  // Old statuses (kept for backwards compatibility/no data loss)
+  QUEUED
+  PROCESSING
+
+  // New strict BullMQ statuses
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
