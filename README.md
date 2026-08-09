@@ -1,7 +1,7 @@
 <div align="center">
 
   <h1>🚀 SecureCloud Run</h1>
-
+  
   <p>
     <strong>A highly scalable, secure, and real-time remote code execution engine.</strong>
   </p>
@@ -9,8 +9,8 @@
   <p>
     <a href="#features"><img alt="Features" src="https://img.shields.io/badge/Features-Military%20Grade%20Sandbox-00e5ff?style=flat-square"></a>
     <a href="#tech-stack"><img alt="Tech Stack" src="https://img.shields.io/badge/Stack-Next.js%20%7C%20Docker%20%7C%20Redis-blueviolet?style=flat-square"></a>
-    <a href="https://github.com/your-username/SecureCloud-Run/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
-    <a href="https://github.com/your-username/SecureCloud-Run/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
+    <a href="https://github.com/divaynshu-code/SecureCloud-Run/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
+    <a href="https://github.com/divaynshu-code/SecureCloud-Run/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
   </p>
 </div>
 
@@ -48,6 +48,7 @@ gVisor is an application kernel written by Google that acts as a secure sandbox 
 
 ---
 
+<a id="features"></a>
 ## ✨ Features
 - **🔒 Military-Grade Sandboxing:** Untrusted code runs in heavily restricted Docker containers wrapped inside a gVisor sandbox.
 - **🛡️ Strict Resource Limits:** Zero network access, dropped kernel privileges, and strict limits on CPU, RAM (512MB), and Threads (250).
@@ -97,6 +98,7 @@ sequenceDiagram
 
 ---
 
+<a id="tech-stack"></a>
 ## 🛠️ Tech Stack
 
 - **Frontend:** Next.js (React), Tailwind CSS, Framer Motion, Monaco Editor, Zustand, Socket.IO Client.
