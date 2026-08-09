@@ -1,8 +1,7 @@
 <div align="center">
-  <img src="https://placehold.co/1200x300/1e1e1e/00e5ff?text=SecureCloud+Run" alt="SecureCloud Run Banner" />
 
   <h1>🚀 SecureCloud Run</h1>
-  
+
   <p>
     <strong>A highly scalable, secure, and real-time remote code execution engine.</strong>
   </p>
