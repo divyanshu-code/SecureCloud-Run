@@ -9,8 +9,8 @@
   <p>
     <a href="#features"><img alt="Features" src="https://img.shields.io/badge/Features-Military%20Grade%20Sandbox-00e5ff?style=flat-square"></a>
     <a href="#tech-stack"><img alt="Tech Stack" src="https://img.shields.io/badge/Stack-Next.js%20%7C%20Docker%20%7C%20Redis-blueviolet?style=flat-square"></a>
-    <a href="https://github.com/divaynshu-code/SecureCloud-Run/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
-    <a href="https://github.com/divaynshu-code/SecureCloud-Run/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
+    <a href="https://github.com/divyanshu-code/SecureCloud-Run/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
+    <a href="https://github.com/divyanshu-code/SecureCloud-Run/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
   </p>
 </div>
 
