@@ -77,7 +77,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden px-4">
+    <div className="relative min-h-screen pt-15 flex items-center justify-center overflow-hidden px-4">
       <SpaceBackground />
 
       {/* Decorative blurred Orbs */}
