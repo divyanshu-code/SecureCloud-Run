@@ -63,7 +63,7 @@ export default function Features() {
   };
 
   return (
-    <section className="py-24 pt-50  relative overflow-hidden bg-transparent">
+    <section className="py-24 lg:pt-50 pt-40 relative overflow-hidden bg-transparent">
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />

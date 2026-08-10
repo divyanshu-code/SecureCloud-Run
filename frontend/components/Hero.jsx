@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Globe, Server, Database, Settings, Shield, Terminal, ArrowRight, Play } from 'lucide-react';
 import Button from '@/components/Button';
+import toast from 'react-hot-toast';
 
 const architectureSteps = [
   { id: 'browser', name: 'Browser', icon: Globe, color: 'text-blue-400', bg: 'bg-blue-400/10' },
@@ -14,7 +15,7 @@ const architectureSteps = [
   { id: 'output', name: 'Secure Output', icon: Terminal, color: 'text-gray-300', bg: 'bg-gray-300/10' },
 ];
 
-const nodePositions = [
+const nodePositionsDesktop = [
   { top: '5%', left: '10%' },
   { top: '23%', left: '30%' },
   { top: '41%', left: '50%' },
@@ -23,15 +24,35 @@ const nodePositions = [
   { top: '95%', left: '60%' },
 ];
 
-
+const nodePositionsMobile = [
+  { top: '5%', left: '20%' },
+  { top: '23%', left: '80%' },
+  { top: '41%', left: '20%' },
+  { top: '59%', left: '80%' },
+  { top: '77%', left: '20%' },
+  { top: '95%', left: '60%' },
+];
 
 export default function Hero() {
+  const isShowcaseMode = process.env.NEXT_PUBLIC_SHOWCASE_MODE === 'true';
   const [activeStep, setActiveStep] = useState(-1);
   const [reachedStep, setReachedStep] = useState(-1);
   const [demoText, setDemoText] = useState('');
   const [isResetting, setIsResetting] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hasMoved, setHasMoved] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setIsMobile(window.innerWidth < 1024);
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  const nodePositions = isMobile ? nodePositionsMobile : nodePositionsDesktop;
 
   const handleMouseMove = (e) => {
     if (!hasMoved) setHasMoved(true);
@@ -62,16 +83,16 @@ export default function Hero() {
           if (!mounted) return;
 
           if (i < architectureSteps.length) {
-             setReachedStep(i); // Dot has arrived! Light up icon.
+            setReachedStep(i); // Dot has arrived! Light up icon.
           } else {
-             // Dot reached the end and moves offscreen. Run the demo text typing effect!
-             for (let j = 1; j <= fullText.length; j++) {
-               await new Promise(r => setTimeout(r, 20));
-               if (!mounted) return;
-               setDemoText(fullText.substring(0, j));
-             }
-             // Hold to read the text before resetting
-             await new Promise(r => setTimeout(r, 3000));
+            // Dot reached the end and moves offscreen. Run the demo text typing effect!
+            for (let j = 1; j <= fullText.length; j++) {
+              await new Promise(r => setTimeout(r, 20));
+              if (!mounted) return;
+              setDemoText(fullText.substring(0, j));
+            }
+            // Hold to read the text before resetting
+            await new Promise(r => setTimeout(r, 3000));
           }
         }
       }
@@ -100,8 +121,8 @@ export default function Hero() {
   };
 
   return (
-    <section 
-      className="relative overflow-hidden pb-16 lg:pt-32 lg:pb-24 flex items-center min-h-[calc(100vh-4rem)]"
+    <section
+      className="relative overflow-hidden pt-32 pb-16  lg:pb-24 flex items-center min-h-[calc(100vh-4rem)]"
       onMouseMove={handleMouseMove}
     >
       {/* Interactive Mouse Glow Spotlight */}
@@ -112,19 +133,17 @@ export default function Hero() {
         }}
       />
 
-
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-20 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-20 items-center">
 
           {/* Left Column - Text Content */}
           <motion.div
-            className="lg:col-span-6 text-center lg:text-left mb-16 lg:mb-0"
+            className="lg:col-span-6 text-center lg:text-left"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 mb-6 text-sm text-accent font-medium">
+            <motion.div variants={itemVariants} className="inline-flex items-center lg:mt-30 mt-20 gap-2 px-3 py-1 rounded-full glass border border-white/10 mb-6 text-sm text-accent font-medium">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -140,10 +159,16 @@ export default function Hero() {
               A distributed code execution platform powered by Docker, gVisor, Redis, BullMQ, and Worker Pools.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Button variant="primary" size="lg" icon={Play} iconPosition="left" className="w-full sm:w-auto shadow-glow-primary" href="/playground">
-                Try Playground
-              </Button>
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center mb-40 lg:justify-start gap-4">
+              {isShowcaseMode ? (
+                <Button variant="primary" size="lg" icon={Play} iconPosition="left" className="w-full sm:w-auto shadow-glow-primary" onClick={() => toast('This page requires login, which is disabled in Showcase Mode.', { icon: '' })}>
+                  Try Playground
+                </Button>
+              ) : (
+                <Button variant="primary" size="lg" icon={Play} iconPosition="left" className="w-full sm:w-auto shadow-glow-primary" href="/playground">
+                  Try Playground
+                </Button>
+              )}
               <Button variant="secondary" size="lg" icon={ArrowRight} iconPosition="right" className="w-full sm:w-auto group" href="/architecture">
                 View Architecture
               </Button>
@@ -152,7 +177,7 @@ export default function Hero() {
 
           {/* Right Column - Animated Architecture */}
           <motion.div
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative mb-16 lg:mb-0"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -163,7 +188,7 @@ export default function Hero() {
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
                 {/* Initial drop line from top into first node */}
                 <line x1={nodePositions[0].left} y1="-10%" x2={nodePositions[0].left} y2={nodePositions[0].top} stroke="rgba(255,255,255,0.1)" strokeWidth="2" strokeDasharray="4 4" />
-                
+
                 {nodePositions.slice(0, -1).map((pos, i) => {
                   const next = nodePositions[i + 1];
                   const yMid = (parseFloat(pos.top) + parseFloat(next.top)) / 2 + '%';

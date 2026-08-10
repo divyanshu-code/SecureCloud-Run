@@ -64,7 +64,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {isShowcaseMode && (
-        <div className="bg-accent text-black text-xs font-semibold py-1.5 px-4 text-center z-50 flex items-center justify-center">
+        <div className="bg-accent text-black lg:text-xs text-[11px] font-semibold py-1.5 px-4 text-center z-50 flex items-center justify-center">
           <span className="mr-2"></span> SecureCloud Run is currently in Showcase Mode. The execution backend is offline to save server costs. Feel free to explore the UI!
         </div>
       )}
