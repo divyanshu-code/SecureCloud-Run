@@ -12,8 +12,8 @@ export default function ArchitecturePage() {
   return (
     <div className="relative flex flex-col min-h-screen pt-24 lg:pt-28 pb-0 overflow-hidden">
       <SpaceBackground />
-      
-      <div className="w-full flex-1 relative z-10 flex flex-col">
+
+      <div className="w-full flex-1 relative z-10 flex mt-10 lg:mt-0 flex-col">
         {/* Header */}
         <div className="px-4 sm:px-6 lg:px-8 mb-4 max-w-7xl mx-auto w-full text-center lg:text-left">
           <h1 className="text-3xl font-bold text-white tracking-wide">Interactive Architecture</h1>
