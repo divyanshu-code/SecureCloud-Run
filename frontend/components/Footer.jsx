@@ -39,7 +39,7 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
-              <a href="#" aria-label="GitHub" className="p-2 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://github.com/divyanshu-code/SecureCloud-Run" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
                 <GithubIcon size={18} />
               </a>
 
@@ -101,7 +101,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Company</h3>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-muted hover:text-white text-sm transition-colors group flex items-center">
+                <a href="https://github.com/divyanshu-code/SecureCloud-Run" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-white text-sm transition-colors group flex items-center">
                   <span className="relative overflow-hidden">
                     <span className="block transition-transform duration-300 group-hover:-translate-y-full">GitHub</span>
                     <span className="absolute inset-0 transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-accent">GitHub</span>
@@ -110,10 +110,10 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="#" className="text-muted hover:text-white text-sm transition-colors flex items-center gap-2 group">
+                <Link href="/career" className="text-muted hover:text-white text-sm transition-colors flex items-center gap-2 group">
                   Careers
                   <span className="px-2 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium opacity-80 group-hover:opacity-100 transition-opacity">Hiring</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

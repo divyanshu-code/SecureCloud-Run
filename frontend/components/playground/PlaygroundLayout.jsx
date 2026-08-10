@@ -49,6 +49,11 @@ export default function PlaygroundLayout() {
   };
 
   const handleRun = async () => {
+    if (process.env.NEXT_PUBLIC_SHOWCASE_MODE === 'true') {
+      toast('Code execution is disabled in Showcase Mode because the Docker infrastructure is offline.', { icon: '🚧' });
+      return;
+    }
+
     try {
       setExecutionStatus('queued');
       setExecutionOutput('');

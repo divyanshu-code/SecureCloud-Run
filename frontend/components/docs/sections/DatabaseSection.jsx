@@ -52,8 +52,30 @@ const SchemaTable = ({ table }) => (
       </div>
     </div>
     
-    <div className="overflow-x-auto">
-      <table className="w-full text-left border-collapse">
+    {/* Mobile Card Layout */}
+    <div className="md:hidden p-4 space-y-4 bg-[#050508]/50">
+      {table.columns.map((col, idx) => (
+        <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col gap-3">
+          <div className="flex justify-between items-start">
+            <span className="font-mono text-gray-200 font-semibold text-sm">{col.name}</span>
+            <span className="font-mono text-purple-400 text-xs px-2 py-1 bg-purple-400/10 rounded-md border border-purple-400/20">{col.type}</span>
+          </div>
+          {col.key && (
+            <div>
+              {col.key === 'Primary Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-semibold border border-yellow-500/20"><Key size={12}/> PK</span>}
+              {col.key === 'Foreign Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20"><Key size={12}/> FK</span>}
+              {col.key === 'Unique Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20"><Hash size={12}/> UNIQUE</span>}
+              {col.key === 'Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-500/10 text-gray-400 text-xs font-semibold border border-gray-500/20"><Hash size={12}/> INDEX</span>}
+            </div>
+          )}
+          <p className="text-gray-400 text-sm leading-relaxed">{col.description}</p>
+        </div>
+      ))}
+    </div>
+
+    {/* Desktop Table Layout */}
+    <div className="hidden md:block overflow-x-auto w-full">
+      <table className="w-full text-left border-collapse min-w-[700px]">
         <thead>
           <tr className="bg-[#11111a] border-b border-white/5 text-xs uppercase tracking-wider text-gray-500">
             <th className="px-6 py-4 font-semibold">Column</th>

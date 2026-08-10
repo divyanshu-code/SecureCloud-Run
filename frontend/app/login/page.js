@@ -14,6 +14,7 @@ import { FcGoogle } from 'react-icons/fc';
 export default function LoginPage() {
   const router = useRouter();
   const { login, register, isAuthenticated, isLoading, error, clearError } = useAuthStore();
+  const isShowcaseMode = process.env.NEXT_PUBLIC_SHOWCASE_MODE === 'true';
 
   const [isLoginView, setIsLoginView] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +52,11 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isShowcaseMode) {
+      toast('Authentication is disabled in Showcase Mode because the backend database is offline.', { icon: '🚧' });
+      return;
+    }
+    
     let result;
 
     if (isLoginView) {
@@ -68,6 +74,11 @@ export default function LoginPage() {
   };
 
   const handleOAuthClick = (provider) => {
+    if (isShowcaseMode) {
+      toast(`${provider} OAuth is disabled in Showcase Mode.`, { icon: '🚧' });
+      return;
+    }
+    
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
     if (provider === 'GitHub') {
       window.location.href = `${baseUrl}/api/v1/auth/github`;
