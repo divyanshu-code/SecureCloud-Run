@@ -10,18 +10,18 @@ import { config } from '../config/env.js';
 export const dockerConfig = {
   // Global defaults
   defaultImage: 'node:20-alpine', // Base lightweight image
-  
+
   // Security Limits
   limits: {
     // Memory limit in megabytes (e.g., 256MB)
     memory: config.execution.maxMemoryMb * 1024 * 1024,
-    
+
     // CPU limitation (e.g., 0.5 means half of a single CPU core)
     cpus: config.execution.maxCpuCores,
-    
+
     // Maximum bytes the container can write to disk (prevents disk exhaustion attacks)
     diskQuota: '50M',
-    
+
     // Hard execution timeout (ms)
     timeoutMs: config.execution.timeoutMs,
   },
@@ -30,7 +30,7 @@ export const dockerConfig = {
   securityOpts: [
     'no-new-privileges', // Prevent processes from gaining more privileges than their parent
   ],
-  
+
   // Network constraint - we completely disable internet access inside the container
   // so malicious code cannot make outbound HTTP requests or participate in DDoS.
   networkMode: 'none',
