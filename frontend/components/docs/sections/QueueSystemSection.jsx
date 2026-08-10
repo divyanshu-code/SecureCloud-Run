@@ -15,7 +15,7 @@ const itemVariants = {
 
 export default function QueueSystemSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12">
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl  mt-22 lg:mt-0 pb-12">
 
       {/* Header */}
       <div>

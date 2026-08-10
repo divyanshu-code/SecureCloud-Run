@@ -83,7 +83,7 @@ const techStack = [
 
 export default function TechStackSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl">
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12  mt-22 lg:mt-0 max-w-4xl">
 
       {/* Header */}
       <div>

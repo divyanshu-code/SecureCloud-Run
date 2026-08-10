@@ -37,7 +37,7 @@ const FaqItem = ({ question, answer }) => {
 
   return (
     <div className="border border-white/10 bg-[#0a0a0f] rounded-xl overflow-hidden transition-colors hover:border-white/20">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
       >
@@ -45,16 +45,16 @@ const FaqItem = ({ question, answer }) => {
           <HelpCircle className={isOpen ? 'text-blue-400' : 'text-gray-500'} size={20} />
           <h3 className="font-semibold text-white text-lg">{question}</h3>
         </div>
-        <ChevronDown 
-          className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : ''}`} 
-          size={20} 
+        <ChevronDown
+          className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : ''}`}
+          size={20}
         />
       </button>
-      
+
       {/* Animated Dropdown Content */}
-      <motion.div 
-        initial={false} 
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }} 
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
         className="overflow-hidden"
       >
         <div className="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2 bg-[#11111a]">
@@ -67,8 +67,8 @@ const FaqItem = ({ question, answer }) => {
 
 export default function FaqSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-3xl pb-12">
-      
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-3xl pb-12  mt-22 lg:mt-0">
+
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-white mb-4 mt-12 lg:mt-0 tracking-tight">Frequently Asked Questions</h1>

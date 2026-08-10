@@ -51,7 +51,7 @@ const SchemaTable = ({ table }) => (
         <p className="text-sm text-gray-400">{table.description}</p>
       </div>
     </div>
-    
+
     {/* Mobile Card Layout */}
     <div className="md:hidden p-4 space-y-4 bg-[#050508]/50">
       {table.columns.map((col, idx) => (
@@ -62,10 +62,10 @@ const SchemaTable = ({ table }) => (
           </div>
           {col.key && (
             <div>
-              {col.key === 'Primary Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-semibold border border-yellow-500/20"><Key size={12}/> PK</span>}
-              {col.key === 'Foreign Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20"><Key size={12}/> FK</span>}
-              {col.key === 'Unique Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20"><Hash size={12}/> UNIQUE</span>}
-              {col.key === 'Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-500/10 text-gray-400 text-xs font-semibold border border-gray-500/20"><Hash size={12}/> INDEX</span>}
+              {col.key === 'Primary Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-semibold border border-yellow-500/20"><Key size={12} /> PK</span>}
+              {col.key === 'Foreign Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20"><Key size={12} /> FK</span>}
+              {col.key === 'Unique Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20"><Hash size={12} /> UNIQUE</span>}
+              {col.key === 'Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-500/10 text-gray-400 text-xs font-semibold border border-gray-500/20"><Hash size={12} /> INDEX</span>}
             </div>
           )}
           <p className="text-gray-400 text-sm leading-relaxed">{col.description}</p>
@@ -90,10 +90,10 @@ const SchemaTable = ({ table }) => (
               <td className="px-6 py-4 font-mono text-gray-300 font-medium">{col.name}</td>
               <td className="px-6 py-4 font-mono text-purple-400">{col.type}</td>
               <td className="px-6 py-4">
-                {col.key === 'Primary Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-semibold border border-yellow-500/20"><Key size={12}/> PK</span>}
-                {col.key === 'Foreign Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20"><Key size={12}/> FK</span>}
-                {col.key === 'Unique Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20"><Hash size={12}/> UNIQUE</span>}
-                {col.key === 'Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-500/10 text-gray-400 text-xs font-semibold border border-gray-500/20"><Hash size={12}/> INDEX</span>}
+                {col.key === 'Primary Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-yellow-500/10 text-yellow-400 text-xs font-semibold border border-yellow-500/20"><Key size={12} /> PK</span>}
+                {col.key === 'Foreign Key' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20"><Key size={12} /> FK</span>}
+                {col.key === 'Unique Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20"><Hash size={12} /> UNIQUE</span>}
+                {col.key === 'Index' && <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-500/10 text-gray-400 text-xs font-semibold border border-gray-500/20"><Hash size={12} /> INDEX</span>}
               </td>
               <td className="px-6 py-4 text-gray-400 leading-relaxed">{col.description}</td>
             </tr>
@@ -106,8 +106,8 @@ const SchemaTable = ({ table }) => (
 
 export default function DatabaseSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-5xl pb-12">
-      
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-5xl  mt-22 lg:mt-0 pb-12">
+
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-white mb-4 mt-12 lg:mt-0 tracking-tight">Database Design</h1>

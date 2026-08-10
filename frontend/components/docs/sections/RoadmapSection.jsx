@@ -54,8 +54,8 @@ const roadmapPhases = [
 
 export default function RoadmapSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12">
-      
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl  mt-22 lg:mt-0 pb-12">
+
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-white mb-4 mt-12 lg:mt-0 tracking-tight">Development Roadmap</h1>
@@ -87,13 +87,13 @@ export default function RoadmapSection() {
         {roadmapPhases.map((phase, index) => {
           const Icon = phase.icon;
           return (
-            <motion.div 
+            <motion.div
               key={index}
               variants={itemVariants}
               className={`p-6 md:p-8 rounded-2xl bg-[#0a0a0f] border ${phase.border} relative overflow-hidden group`}
             >
               <div className={`absolute top-0 right-0 w-48 h-48 ${phase.bg} blur-[60px] rounded-full pointer-events-none`} />
-              
+
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-3 rounded-xl bg-[#11111a] border ${phase.border}`}>
                   <Icon className={phase.color} size={24} />

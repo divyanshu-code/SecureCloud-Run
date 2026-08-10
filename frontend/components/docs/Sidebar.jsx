@@ -58,7 +58,7 @@ export default function Sidebar({ activeSection, setActiveSection }) {
   }, [isOpen]);
 
   const SidebarContent = ({ isMobile }) => (
-    <div className={`p-5 h-full ${isMobile ? 'pt-28 rounded-none bg-[#0a0a0f] border-r border-white/10' : 'rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/5'} flex flex-col`}>
+    <div className={`p-5 h-full ${isMobile ? 'pt-38 rounded-none bg-[#0a0a0f] border-r border-white/10' : 'rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/5'} flex flex-col`}>
       <div className="flex justify-between items-center mb-6 px-2">
         <h3 className="text-xs font-semibold text-muted uppercase tracking-wider">
           Documentation
@@ -104,7 +104,7 @@ export default function Sidebar({ activeSection, setActiveSection }) {
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden fixed left-0 top-22 z-30 p-2 bg-[#0a0a0f]/95 backdrop-blur-md border border-l-0 border-white/10 rounded-r-lg shadow-xl text-white hover:bg-white/10 transition-colors"
+        className="lg:hidden fixed left-0 top-32 z-30 p-2 bg-[#0a0a0f]/95 backdrop-blur-md border border-l-0 border-white/10 rounded-r-lg shadow-xl text-white hover:bg-white/10 transition-colors"
         aria-label="Open documentation menu"
       >
         <ArrowRight size={20} />

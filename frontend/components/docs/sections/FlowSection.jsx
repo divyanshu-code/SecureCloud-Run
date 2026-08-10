@@ -104,7 +104,7 @@ const steps = [
 
 export default function FlowSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12">
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12  mt-22 lg:mt-0">
 
       {/* Header */}
       <div>

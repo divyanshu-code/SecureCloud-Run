@@ -45,8 +45,8 @@ const environments = [
 
 export default function DeploymentSection() {
   return (
-    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12">
-      
+    <motion.div variants={contentVariants} initial="hidden" animate="visible" className="space-y-12 max-w-4xl pb-12  mt-22 lg:mt-0">
+
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-white mb-4 mt-12 lg:mt-0 tracking-tight">Deployment Strategy</h1>
@@ -60,13 +60,13 @@ export default function DeploymentSection() {
         {environments.map((env) => {
           const Icon = env.icon;
           return (
-            <motion.div 
+            <motion.div
               key={env.name}
               variants={itemVariants}
               className={`p-6 rounded-2xl bg-[#0a0a0f] border ${env.border} relative overflow-hidden group`}
             >
               <div className={`absolute top-0 right-0 w-32 h-32 ${env.bg} blur-[40px] rounded-full -mr-16 -mt-16 pointer-events-none transition-opacity opacity-50 group-hover:opacity-100`} />
-              
+
               <Icon className={`${env.color} mb-4`} size={28} />
               <h3 className="font-bold text-white mb-1">{env.name}</h3>
               <div className="text-xs font-mono text-gray-400 mb-4 tracking-wider uppercase">{env.provider}</div>
@@ -78,7 +78,7 @@ export default function DeploymentSection() {
 
       {/* CI/CD Pipeline */}
       <div className="mt-12 p-8 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
-        
+
         <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
           <GitBranch className="text-white" /> Continuous Integration (CI/CD)
         </h2>
